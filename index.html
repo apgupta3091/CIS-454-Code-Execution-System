@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Embedded code editor</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
+  </head>
+
+  <body>
+    <div class="home">
+      <header class="header-home">
+        <nav>
+          <div class="row">
+            <a href="#home"></a>
+            <ul class="main-nav">
+              <li>
+                <h1 class="title">Embedded Code Editor</h1>
+              </li>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#editor">Editor</a></li>
+              <li><a href="#support">Support</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <div class="main-img">
+        <img src="Resources/ct-html-page.gif" alt="gif" />
+      </div>
+
+      <div class="code-editor">
+        <select name="options">
+          <option value="one">Front-End</option>
+          <option value="two">Back-End</option>
+        </select>
+
+        <div class="code-area-front-end">
+          <textarea
+            id="htmlCode"
+            placeholder="HTML"
+            oninput="showPreview()"
+          ></textarea>
+
+          <textarea
+            id="cssCode"
+            placeholder="CSS"
+            oninput="showPreview()"
+          ></textarea>
+
+          <textarea
+            id="jsCode"
+            placeholder="JS"
+            oninput="showPreview()"
+          ></textarea>
+        </div>
+
+        <div class="code-area-back-end">
+          <textarea id="pythonCode" placeholder="Python"></textarea>
+        </div>
+
+        <div class="preview-area">
+          <iframe id="preview-window"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      function showPreview() {
+        var htmlCode = document.getElementById("htmlCode").value;
+        var cssCode =
+          "<style>" + document.getElementById("cssCode").value + "</style>";
+        var jsCode =
+          "<scri" +
+          "pt>" +
+          document.getElementById("jsCode").value +
+          "</scri" +
+          "pt>";
+        var frame = document.getElementById("preview-window").contentWindow
+          .document;
+
+        frame.open();
+        frame.write(htmlCode + cssCode + jsCode);
+        frame.close();
+      }
+    </script>
+  </body>
+</html>
