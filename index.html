@@ -51,13 +51,11 @@
             placeholder="HTML"
             oninput="showPreview()"
           ></textarea>
-
           <textarea
             id="cssCode"
             placeholder="CSS"
             oninput="showPreview()"
           ></textarea>
-
           <textarea
             id="jsCode"
             placeholder="JS"
@@ -65,9 +63,7 @@
           ></textarea>
         </div>
 
-        <div id="preview-window" class="preview-area">
-          <iframe id="preview-window"></iframe>
-        </div>
+        <div class="preview-area"><iframe id="preview-window"></iframe></div>
 
 
         <!--------------------- BACKEND EDITOR-------------------------->
@@ -243,12 +239,12 @@ http.createServer(function (req, res) {
           document.getElementById("jsCode").value +
           "</scri" +
           "pt>";
-        var frame = document.getElementById("preview-window").contentWindow.document;
+
+        var frame = document.getElementById("preview-window").contentWindow
+          .document;
 
         frame.open();
         frame.write(htmlCode + cssCode + jsCode);
-
-        console.log(htmlCode);
         frame.close();
       }
     </script>
