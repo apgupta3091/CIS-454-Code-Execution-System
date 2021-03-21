@@ -7,7 +7,7 @@
     <title>Embedded Code Editor</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="Resources/prism (1).css" />
     <link rel="stylesheet" type="text/css" href="main.css" />
   </head>
 
@@ -33,13 +33,19 @@
         <img src="Resources/ct-html-page.gif" alt="gif" />
       </div>
 
+
+        <!--------------------- CODE EDITOR-------------------------->
+
       <div class="code-editor">
-        <select name="options">
+        <select id="dropdown" name="options" onclick="changeType()">
           <option value="one">Front-End</option>
           <option value="two">Back-End</option>
         </select>
 
-        <div class="code-area-front-end">
+
+        <!--------------------- FRONT END EDITOR-------------------------->
+
+        <div id="front-end" class="code-area-front-end">
           <textarea
             id="htmlCode"
             placeholder="HTML"
@@ -59,14 +65,170 @@
           ></textarea>
         </div>
 
-        <div class="code-area-back-end">
-          <textarea id="pythonCode" placeholder="Python"></textarea>
+
+        <!--------------------- BACKEND EDITOR-------------------------->
+
+        <div id="back-end" class="code-area-back-end">
+          <select id="languageSelection" name="options2" onclick='changeLanguage()'>
+            <option value="one">Python</option>
+            <option value="two">Java</option>
+            <option value="three">C++</option>
+            <option value="four">Node.js</option>
+            <option value="five">C</option>
+          </select>
+          
+          <!--------------------- PYTHON CODE-------------------------->
+          <pre
+            onPaste="setTimeout(function() {onPaste();}, 0)"
+            id="editable1"
+            contenteditable
+          >
+        <code id ='python' class = 'language-python'>
+#Python
+def main()
+print("hello world")
+
+if __name__ == "__main__":
+  main()
+        </code></pre>
+
+        <!--------------------- JAVA CODE-------------------------->
+          <pre
+            onPaste="setTimeout(function() {onPaste();}, 0)"
+            id="editable2"
+            contenteditable
+          >
+        <code id ='java' class = 'language-java'>
+//Java
+public class HelloWorld{
+
+  public static void main(String [] args){
+    System.out.println("Hello World");
+  }
+}
+        
+        </code></pre>
+
+        <!--------------------- C++ CODE-------------------------->
+          <pre
+            onPaste="setTimeout(function() {onPaste();}, 0)"
+            id="editable3"
+            contenteditable
+          >
+        <code id ='C++' class = 'language-cpp'>
+//C++
+#include <iostream>
+
+  int main() {
+    std::cout << "Hello World!";
+    return 0;
+  }
+        
+        </code></pre>
+
+        <!--------------------- JS CODE-------------------------->
+        <pre
+            onPaste="setTimeout(function() {onPaste();}, 0)"
+            id="editable4"
+            contenteditable
+          >
+        <code id ='JS' class = 'language-javascript'>
+//JS
+var http = require('http');
+
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  res.end('Hello World!');
+}).listen(8080);
+        
+        </code></pre>
+
+        <!--------------------- C CODE-------------------------->
+        <pre
+            onPaste="setTimeout(function() {onPaste();}, 0)"
+            id="editable5"
+            contenteditable
+          >
+        <code id ='C' class = 'language-c'>
+//C
+#include <stdio.h>
+  int main() {
+    printf("Hello, World!");
+    return 0;
+  }
+        
+        </code></pre>
         </div>
 
-        <div class="preview-area">
+        <div id="preview-window" class="preview-area">
           <iframe id="preview-window"></iframe>
         </div>
       </div>
+
+      <!--------------------- Support-------------------------->
+      <section class="section-form">
+        <div class="row">
+            <h2 class="support">Reach out to us for help</h2>
+        </div>
+        <div class="row">
+            <form method="post" action="a" class="contact-form">
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="name">Name:</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="text" name="name" id="name" placeholder="Your name" required>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="email">Email:</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="email" name="email" id="email" placeholder="Your email" required>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="find-us">How did you find us?</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <select name="find-us" id="find-us">
+                            <option value="friends" selected>Friends</option>
+                            <option value="search" >Search engine</option>
+                            <option value="ad">Advertisement</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label>Drop us a line</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <textarea class = 'message' name="message" placeholder="Your message"></textarea>
+                    </div>
+                </div>
+                
+                 <div class="row">
+                    <div class="col span-1-of-3">
+                        <label>&nbsp;</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input class="submit-btn" type="submit" value="Send it!">
+                        <!--<a href="a" class="btn btn-full">Send it!</a>-->
+                        
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    
+    </section>
     </div>
 
     <script type="text/javascript">
@@ -83,10 +245,88 @@
         var frame = document.getElementById("preview-window").contentWindow
           .document;
 
+        Prism.highlightAll();
         frame.open();
-        frame.write(htmlCode + cssCode + jsCode);
+        frame.write(
+          "<pre><code class='language-hmtl'>" +
+            htmlCode +
+            "</code></pre>" +
+            cssCode +
+            jsCode
+        );
         frame.close();
       }
     </script>
+    <script type="text/javascript">
+      function changeType() {
+        var languageEndValue = document.getElementById("dropdown").value;
+        var selectionDropDown = document.getElementById("dropdown");
+        var frontEnd = document.getElementById("front-end");
+        var backEnd = document.getElementById("back-end");
+        var previewWindow = document.getElementById("preview-window");
+
+        selectionDropDown.addEventListener("click", function () {
+          if (languageEndValue === "two") {
+            frontEnd.style.display = "none";
+            backEnd.style.display = "block";
+            previewWindow.style.display = "none";
+          } else {
+            frontEnd.style.display = "flex";
+            backEnd.style.display = "none";
+            previewWindow.style.display = "block";
+          }
+        });
+      }
+    </script>
+
+    <script type="text/javascript">
+      function changeLanguage(){
+        var languageBackendValue = document.getElementById("languageSelection").value;
+        var languageDropDown = document.getElementById("languageSelection");
+        var python = document.getElementById("editable1");
+        var java = document.getElementById('editable2');
+        var cpp = document.getElementById('editable3');
+        var js = document.getElementById('editable4');
+        var c = document.getElementById('editable5');
+        
+        languageDropDown.addEventListener('click', function () {
+          if (languageBackendValue ==='one' ){
+            python.style.display='block';
+            java.style.display='none';
+            cpp.style.display='none';
+            js.style.display='none';
+            c.style.display='none';
+          } else if (languageBackendValue==='two'){
+            java.style.display='block';
+            python.style.display='none';
+            cpp.style.display='none';
+            js.style.display='none';
+            c.style.display='none';
+          } else if (languageBackendValue==='three'){
+            cpp.style.display='block';
+            python.style.display='none';
+            java.style.display='none';
+            js.style.display='none';
+            c.style.display='none';
+          } else if (languageBackendValue==='four'){
+            js.style.display='block';
+            python.style.display='none';
+            cpp.style.display='none';
+            java.style.display='none';
+            c.style.display='none';
+          } else if (languageBackendValue==='five'){
+            c.style.display='block';
+            python.style.display='none';
+            cpp.style.display='none';
+            js.style.display='none';
+            java.style.display='none';
+          }
+      });
+
+      }
+
+    </script>
+
+    <script src="Resources/prism (1).js"></script>
   </body>
 </html>

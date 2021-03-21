@@ -103,25 +103,82 @@ img {
   height: 100%;
   font-size: 18px;
   padding: 10px;
+  background-color: rgb(26, 25, 25);
+  color: yellow;
 }
 .code-area-back-end {
   display: none;
   width: 100%;
-  height: 50vh;
+  height: 100%;
 }
 
 .code-area-back-end textarea {
   width: 100%;
   height: 100%;
   font-size: 18px;
+  background-color: rgb(26, 25, 25);
+  color: yellow;
 }
 
 .preview-area {
   margin-top: 10px;
   height: 50vh;
+  display: block;
 }
 
 .preview-area iframe {
   width: 100%;
   height: 100%;
+}
+
+.contact-form {
+  width: 60%;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+.support {
+  margin-top: 20px;
+  margin-left: 320px;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="submit"],
+select,
+.message {
+  width: 100%;
+  padding: 7px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+.message {
+  height: 100px;
+}
+
+input[type="checkbox"] {
+  margin: 10px 5px 10px 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+#editable2 {
+  display: none;
+}
+
+#editable3 {
+  display: none;
+}
+
+#editable4 {
+  display: none;
+}
+
+#editable5 {
+  display: none;
 }
