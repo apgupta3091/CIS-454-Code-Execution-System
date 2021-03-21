@@ -65,6 +65,10 @@
           ></textarea>
         </div>
 
+        <div id="preview-window" class="preview-area">
+          <iframe id="preview-window"></iframe>
+        </div>
+
 
         <!--------------------- BACKEND EDITOR-------------------------->
 
@@ -100,10 +104,9 @@ if __name__ == "__main__":
           >
         <code id ='java' class = 'language-java'>
 //Java
-public class HelloWorld{
-
-  public static void main(String [] args){
-    System.out.println("Hello World");
+class HelloWorld {
+  public static void main(String[] args) {
+      System.out.println("Hello, World!"); 
   }
 }
         
@@ -160,9 +163,7 @@ http.createServer(function (req, res) {
         </code></pre>
         </div>
 
-        <div id="preview-window" class="preview-area">
-          <iframe id="preview-window"></iframe>
-        </div>
+        
       </div>
 
       <!--------------------- Support-------------------------->
@@ -242,21 +243,16 @@ http.createServer(function (req, res) {
           document.getElementById("jsCode").value +
           "</scri" +
           "pt>";
-        var frame = document.getElementById("preview-window").contentWindow
-          .document;
+        var frame = document.getElementById("preview-window").contentWindow.document;
 
-        Prism.highlightAll();
         frame.open();
-        frame.write(
-          "<pre><code class='language-hmtl'>" +
-            htmlCode +
-            "</code></pre>" +
-            cssCode +
-            jsCode
-        );
+        frame.write(htmlCode + cssCode + jsCode);
+
+        console.log(htmlCode);
         frame.close();
       }
     </script>
+
     <script type="text/javascript">
       function changeType() {
         var languageEndValue = document.getElementById("dropdown").value;
