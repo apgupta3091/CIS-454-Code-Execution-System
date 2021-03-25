@@ -63,7 +63,7 @@
           ></textarea>
         </div>
 
-        <div class="preview-area"><iframe id="preview-window"></iframe></div>
+        <div id = 'preview-area' class="preview-area"><iframe id="preview-window"></iframe></div>
 
 
         <!--------------------- BACKEND EDITOR-------------------------->
@@ -255,7 +255,7 @@ http.createServer(function (req, res) {
         var selectionDropDown = document.getElementById("dropdown");
         var frontEnd = document.getElementById("front-end");
         var backEnd = document.getElementById("back-end");
-        var previewWindow = document.getElementById("preview-window");
+        var previewWindow = document.getElementById("preview-area");
 
         selectionDropDown.addEventListener("click", function () {
           if (languageEndValue === "two") {

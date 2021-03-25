@@ -132,7 +132,7 @@ img {
 }
 
 .contact-form {
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   padding-bottom: 30px;
 }
@@ -153,6 +153,7 @@ select,
   padding: 7px;
   border-radius: 3px;
   border: 1px solid #ccc;
+  margin-top: 15px;
 }
 
 .message {
@@ -181,4 +182,8 @@ input[type="checkbox"] {
 
 #editable5 {
   display: none;
+}
+
+.section-form {
+  height: 75vh;
 }
