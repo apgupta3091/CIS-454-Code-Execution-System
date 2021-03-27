@@ -7,9 +7,10 @@ import json
 #
 #          }
 
-#  DOCKER_RUN_CMDS = {
-#
-#          }
+DOCKER_RUN_CMDS = {
+        "py": "python python",
+        "rkt": "racket/racket racket"
+        }
 
 # Adjust accordingly to local machine
 LOCAL_DIR = os.getcwd()
@@ -19,11 +20,6 @@ class ExecRequest:
     ''' State and logic for a code execution request '''
 
     def __init__(self, json_input):
-        #  with open(json_input) as json_conn:
-        #      self.data = json.load(json_conn)
-        #      self.ext = self.data["lang"]
-        #      self.src_code = self.data["src"]
-        #  self.json_input = json_input
         self.ext = json_input["lang"]
         self.src_code = json_input["src"]
 
@@ -33,7 +29,7 @@ class ExecRequest:
 
     def get_docker_cmd(self):
         ''' determine commands to pass to the Docker engine '''
-        pass
+        return DOCKER_RUN_CMDS[self.ext]
 
     def check_runtime_install(self):
         ''' check that the Docker runtime is installed '''
@@ -47,6 +43,7 @@ class ExecRequest:
         file_name = os.path.split(path)[1]
         # TODO: generalize this
         proc = subprocess.run(f"docker run -v {LOCAL_DIR}:{MOUNTED_DIR} --rm python python /mnt/src/{file_name}", shell=True, stdout=subprocess.PIPE)
+        #  proc = subprocess.run(f"docker run -v {LOCAL_DIR}:{MOUNTED_DIR} --rm racket/racket racket /mnt/src/{file_name}", shell=True, stdout=subprocess.PIPE)
         output = proc.stdout.decode().strip()
         os.remove(file_name)
         return output
