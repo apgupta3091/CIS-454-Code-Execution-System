@@ -187,3 +187,21 @@ input[type="checkbox"] {
 .section-form {
   height: 75vh;
 }
+
+.pyForm {
+  display: block;
+}
+
+.javaForm {
+  display: none;
+}
+
+.jsForm {
+  display: none;
+}
+.cForm {
+  display: none;
+}
+.cppForm {
+  display: none;
+}

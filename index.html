@@ -78,6 +78,7 @@
           </select>
           
           <!--------------------- PYTHON CODE-------------------------->
+          <form id ='pyForm' action="127.0.0.1:5000" method="post">
           <pre
             onPaste="setTimeout(function() {onPaste();}, 0)"
             id="editable1"
@@ -91,8 +92,13 @@ print("hello world")
 if __name__ == "__main__":
   main()
         </code></pre>
+        <input id='pySubmit' type="submit" value="Submit">
+        </form>
+
+        
 
         <!--------------------- JAVA CODE-------------------------->
+        <form id ='javaForm' action="127.0.0.1:5000" method="post">
           <pre
             onPaste="setTimeout(function() {onPaste();}, 0)"
             id="editable2"
@@ -107,8 +113,11 @@ class HelloWorld {
 }
         
         </code></pre>
+        <input id='javaSubmit' style="display:none;" type="submit" value="Submit">
+      </form>
 
         <!--------------------- C++ CODE-------------------------->
+        <form  id ='cppForm' action="127.0.0.1:5000" method="post">
           <pre
             onPaste="setTimeout(function() {onPaste();}, 0)"
             id="editable3"
@@ -124,8 +133,11 @@ class HelloWorld {
   }
         
         </code></pre>
+        <input id='cppSubmit' style="display:none;"  type="submit" value="Submit">
+      </form>
 
         <!--------------------- JS CODE-------------------------->
+        <form  id ='jsForm' action="127.0.0.1:5000" method="post">
         <pre
             onPaste="setTimeout(function() {onPaste();}, 0)"
             id="editable4"
@@ -141,8 +153,11 @@ http.createServer(function (req, res) {
 }).listen(8080);
         
         </code></pre>
+        <input id='jsSubmit' style="display:none;" type="submit" value="Submit">
+      </form>
 
         <!--------------------- C CODE-------------------------->
+        <form  id ='cForm' action="127.0.0.1:5000" method="post">
         <pre
             onPaste="setTimeout(function() {onPaste();}, 0)"
             id="editable5"
@@ -157,6 +172,8 @@ http.createServer(function (req, res) {
   }
         
         </code></pre>
+        <input id='cSubmit' style="display:none;" type="submit" value="Submit">
+      </form>
         </div>
 
         
@@ -216,7 +233,7 @@ http.createServer(function (req, res) {
                         <label>&nbsp;</label>
                     </div>
                     <div class="col span-2-of-3">
-                        <input class="submit-btn" type="submit" value="Send it!">
+                        <input class="submit-btn" type="submit" value="Send it!" href=''>
                         <!--<a href="a" class="btn btn-full">Send it!</a>-->
                         
                     </div>
@@ -280,6 +297,11 @@ http.createServer(function (req, res) {
         var cpp = document.getElementById('editable3');
         var js = document.getElementById('editable4');
         var c = document.getElementById('editable5');
+        var pyForm =document.getElementById('pyForm')
+        var javaForm =document.getElementById('javaForm')
+        var jsForm =document.getElementById('jsForm')
+        var cppForm =document.getElementById('cppForm')
+        var cForm =document.getElementById('cForm')
         
         languageDropDown.addEventListener('click', function () {
           if (languageBackendValue ==='one' ){
@@ -288,30 +310,55 @@ http.createServer(function (req, res) {
             cpp.style.display='none';
             js.style.display='none';
             c.style.display='none';
+            pySubmit.style.display ='block';
+            javaSubmit.style.display ='none';
+            cppSubmit.style.display ='none';
+            jsSubmit.style.display ='none';
+            cSubmit.style.display ='none';
           } else if (languageBackendValue==='two'){
             java.style.display='block';
             python.style.display='none';
             cpp.style.display='none';
             js.style.display='none';
             c.style.display='none';
+            pySubmit.style.display ='none';
+            javaSubmit.style.display ='block';
+            cppSubmit.style.display ='none';
+            jsSubmit.style.display ='none';
+            cSubmit.style.display ='none';
           } else if (languageBackendValue==='three'){
             cpp.style.display='block';
             python.style.display='none';
             java.style.display='none';
             js.style.display='none';
             c.style.display='none';
+            pySubmit.style.display ='none';
+            javaSubmit.style.display ='none';
+            cppSubmit.style.display ='block';
+            jsSubmit.style.display ='none';
+            cSubmit.style.display ='none';
           } else if (languageBackendValue==='four'){
             js.style.display='block';
             python.style.display='none';
             cpp.style.display='none';
             java.style.display='none';
             c.style.display='none';
+            pySubmit.style.display ='none';
+            javaSubmit.style.display ='none';
+            cppSubmit.style.display ='none';
+            jsSubmit.style.display ='block';
+            cSubmit.style.display ='none';
           } else if (languageBackendValue==='five'){
             c.style.display='block';
             python.style.display='none';
             cpp.style.display='none';
             js.style.display='none';
             java.style.display='none';
+            pySubmit.style.display ='none';
+            javaSubmit.style.display ='none';
+            cppSubmit.style.display ='none';
+            jsSubmit.style.display ='none';
+            cSubmit.style.display ='block';
           }
       });
 
