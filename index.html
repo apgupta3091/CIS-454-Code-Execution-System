@@ -233,8 +233,8 @@ http.createServer(function (req, res) {
                         <label>&nbsp;</label>
                     </div>
                     <div class="col span-2-of-3">
-                        <input class="submit-btn" type="submit" value="Send it!" href=''>
-                        <!--<a href="a" class="btn btn-full">Send it!</a>-->
+                        <input class="submit-btn" id='submitBtn' type="submit" value="Send it!" >
+                        
                         
                     </div>
                 </div>
@@ -365,6 +365,145 @@ http.createServer(function (req, res) {
       }
 
     </script>
+
+    <script>
+      pyForm= document.getElementById('pyForm');
+      javaForm = document.getElementById('javaForm');
+      cppForm = document.getElementById('cppForm');
+      jsForm = document.getElementById('jsForm');
+      cForm = document.getElementById('cForm');
+
+      pyForm.addEventListener('submit', function (e){
+        e.preventDefault();
+
+        const pyData = new FormData(this);
+
+        fetch('execrequest.py', {
+          method:'post',
+
+          body: pyData
+
+        }).then(function(response){
+          return response.text();
+        
+        
+        }).then(function (text){
+          console.log(text);
+          
+        }).catch(function (error){
+          console.error(error);
+
+        });
+      
+      });
+
+      javaForm.addEventListener('submit', function (e){
+        e.preventDefault();
+
+        const javaData = new FormData(this);
+
+        fetch('execrequest.py', {
+          method:'post',
+
+          body: javaData
+
+        }).then(function(response){
+          return response.text();
+        
+        
+        }).then(function (text){
+          console.log(text);
+          
+        }).catch(function (error){
+          console.error(error);
+
+        });
+      
+      });
+
+      cppForm.addEventListener('submit', function (e){
+        e.preventDefault();
+
+        const cppData = new FormData(this);
+
+        fetch('execrequest.py', {
+          method:'post',
+
+          body: cppData
+
+        }).then(function(response){
+          return response.text();
+        
+        
+        }).then(function (text){
+          console.log(text);
+          
+        }).catch(function (error){
+          console.error(error);
+
+        });
+      
+      });
+
+      jsForm.addEventListener('submit', function (e){
+        e.preventDefault();
+
+        const jsData = new FormData(this);
+
+        fetch('execrequest.py', {
+          method:'post',
+
+          body: jsData
+
+        }).then(function(response){
+          return response.text();
+        
+        
+        }).then(function (text){
+          console.log(text);
+          
+        }).catch(function (error){
+          console.error(error);
+
+        });
+      
+      });
+
+      cForm.addEventListener('submit', function (e){
+        e.preventDefault();
+
+        const cData = new FormData(this);
+
+        fetch('execrequest.py', {
+          method:'post',
+
+          body: cData
+
+        }).then(function(response){
+          return response.text();
+        
+        
+        }).then(function (text){
+          console.log(text);
+          
+        }).catch(function (error){
+          console.error(error);
+
+        });
+      
+      });
+
+    </script>
+
+    <script>
+      submitBtn = document.getElementById('submitBtn');
+      submitBtn.addEventListener('submit', function(e){
+        e.preventDefault();
+      })
+    </script>
+    
+
+    
 
     <script src="Resources/prism (1).js"></script>
   </body>
