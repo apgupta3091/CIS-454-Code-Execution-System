@@ -1,4 +1,0 @@
-{
-    "lang": "py",
-    "src": "print([x for x in range(10)])"
-}
