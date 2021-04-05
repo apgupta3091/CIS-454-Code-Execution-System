@@ -1,3 +1,5 @@
+/*-------------------------------HTML/BODY/*--------------------------------- */
+
 * {
   margin: 0px;
   padding: 0px;
@@ -16,10 +18,14 @@ body {
   overflow-x: hidden;
 }
 
+/*-------------------------------ROW--------------------------------- */
+
 .row {
   max-width: 1140px;
   margin: 0 auto;
 }
+
+/*-------------------------------LINKS--------------------------------- */
 
 a:link,
 a:visited,
@@ -37,10 +43,12 @@ a:active {
   border-bottom: 1px solid;
 }
 
+/*-------------------------------HOMEPAGE--------------------------------- */
 .home {
   background-color: rgb(228, 224, 224);
 }
 
+/*-------------------------------NAVBAR--------------------------------- */
 header {
   background-position: center;
   height: 140px;
@@ -58,7 +66,7 @@ header {
   display: inline-block;
   margin-left: 20px;
 }
-
+/*-------------------------------TITLE/H1--------------------------------- */
 .title {
   margin-right: 400px;
 }
@@ -68,6 +76,7 @@ h1 {
   color: whitesmoke;
 }
 
+/*-------------------------------IMG/GIF--------------------------------- */
 .main-img {
   margin-top: 80px;
   padding-bottom: 60px;
@@ -82,12 +91,14 @@ img {
   width: 700px;
 }
 
+/*-------------------------------CODE EDITOR--------------------------------- */
 .code-editor {
   margin-top: 0px;
   padding: 50px;
   background-color: white;
 }
 
+/*-------------------------------CODE EDITOR FRONTEND------------------------------- */
 .code-area-front-end {
   display: flex;
   flex-direction: row;
@@ -106,6 +117,8 @@ img {
   background-color: rgb(26, 25, 25);
   color: yellow;
 }
+
+/*-------------------------------CODE AREA BACKEND--------------------------------- */
 .code-area-back-end {
   display: none;
   width: 100%;
@@ -120,6 +133,7 @@ img {
   color: yellow;
 }
 
+/*-------------------------------PREVIEW AREA--------------------------------- */
 .preview-area {
   margin-top: 10px;
   height: 50vh;
@@ -131,6 +145,7 @@ img {
   height: 100%;
 }
 
+/*-------------------------------CONTACT FORM--------------------------------- */
 .contact-form {
   width: 80%;
   margin: 0 auto;
@@ -168,6 +183,7 @@ input[type="checkbox"] {
   outline: none;
 }
 
+/*-------------------------------EDITABLES--------------------------------- */
 #editable2 {
   display: none;
 }
@@ -183,6 +199,8 @@ input[type="checkbox"] {
 #editable5 {
   display: none;
 }
+
+/*-------------------------------FORMS--------------------------------- */
 
 .section-form {
   height: 75vh;
