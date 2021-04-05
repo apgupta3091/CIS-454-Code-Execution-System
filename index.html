@@ -14,6 +14,7 @@
   <body>
     <div class="home">
       <header class="header-home">
+        <!--------------------- NavBar-------------------------->
         <nav>
           <div class="row">
             <a href="#home"></a>
@@ -179,7 +180,7 @@ http.createServer(function (req, res) {
         
       </div>
 
-      <!--------------------- Support-------------------------->
+      <!--------------------- Support FORM-------------------------->
       <section class="section-form">
         <div class="row">
             <h2 class="support">Reach out to us for help</h2>
@@ -245,6 +246,8 @@ http.createServer(function (req, res) {
     </section>
     </div>
 
+    <!--------------------- SHOWPREVIEW FUNCTION-------------------------->
+
     <script type="text/javascript">
       function showPreview() {
         var htmlCode = document.getElementById("htmlCode").value;
@@ -265,6 +268,9 @@ http.createServer(function (req, res) {
         frame.close();
       }
     </script>
+
+        <!--------------------- CHANGETYPE FUNCTION-------------------------->
+
 
     <script type="text/javascript">
       function changeType() {
@@ -288,6 +294,8 @@ http.createServer(function (req, res) {
       }
     </script>
 
+        <!--------------------- CHANGELANGUAGE FUNCTION-------------------------->
+
     <script type="text/javascript">
       function changeLanguage(){
         var languageBackendValue = document.getElementById("languageSelection").value;
@@ -304,6 +312,7 @@ http.createServer(function (req, res) {
         var cForm =document.getElementById('cForm')
         
         languageDropDown.addEventListener('click', function () {
+          //-----------PYTHON SELECTION----------------//
           if (languageBackendValue ==='one' ){
             python.style.display='block';
             java.style.display='none';
@@ -315,7 +324,9 @@ http.createServer(function (req, res) {
             cppSubmit.style.display ='none';
             jsSubmit.style.display ='none';
             cSubmit.style.display ='none';
-          } else if (languageBackendValue==='two'){
+          } 
+          //-----------JAVA SELECTION----------------//
+          else if (languageBackendValue==='two'){
             java.style.display='block';
             python.style.display='none';
             cpp.style.display='none';
@@ -326,7 +337,9 @@ http.createServer(function (req, res) {
             cppSubmit.style.display ='none';
             jsSubmit.style.display ='none';
             cSubmit.style.display ='none';
-          } else if (languageBackendValue==='three'){
+          } 
+          //-----------CPP SELECTION----------------//
+          else if (languageBackendValue==='three'){
             cpp.style.display='block';
             python.style.display='none';
             java.style.display='none';
@@ -337,7 +350,9 @@ http.createServer(function (req, res) {
             cppSubmit.style.display ='block';
             jsSubmit.style.display ='none';
             cSubmit.style.display ='none';
-          } else if (languageBackendValue==='four'){
+          } 
+          //-----------JS SELECTION----------------//
+          else if (languageBackendValue==='four'){
             js.style.display='block';
             python.style.display='none';
             cpp.style.display='none';
@@ -348,7 +363,9 @@ http.createServer(function (req, res) {
             cppSubmit.style.display ='none';
             jsSubmit.style.display ='block';
             cSubmit.style.display ='none';
-          } else if (languageBackendValue==='five'){
+          } 
+          //-----------C SELECTION----------------//
+          else if (languageBackendValue==='five'){
             c.style.display='block';
             python.style.display='none';
             cpp.style.display='none';
@@ -366,6 +383,8 @@ http.createServer(function (req, res) {
 
     </script>
 
+    <!--------------------- FORM SUBMISSIONS FUNCTIONS/FETCH API--------------------->
+
     <script>
       pyForm= document.getElementById('pyForm');
       javaForm = document.getElementById('javaForm');
@@ -373,6 +392,8 @@ http.createServer(function (req, res) {
       jsForm = document.getElementById('jsForm');
       cForm = document.getElementById('cForm');
 
+
+/*-----------------------PYTHON SUBMIT EVENT LISTENER-----------------*/
       pyForm.addEventListener('submit', function (e){
         e.preventDefault();
 
@@ -384,19 +405,16 @@ http.createServer(function (req, res) {
           body: pyData
 
         }).then(function(response){
-          return response.text();
-        
+          return response.text(); 
         
         }).then(function (text){
           console.log(text);
           
         }).catch(function (error){
           console.error(error);
-
         });
-      
       });
-
+/*-----------------------JAVA SUBMIT EVENT LISTENER-----------------*/
       javaForm.addEventListener('submit', function (e){
         e.preventDefault();
 
@@ -410,17 +428,14 @@ http.createServer(function (req, res) {
         }).then(function(response){
           return response.text();
         
-        
         }).then(function (text){
           console.log(text);
           
         }).catch(function (error){
           console.error(error);
-
         });
-      
       });
-
+/*-----------------------CPP SUBMIT EVENT LISTENER-----------------*/
       cppForm.addEventListener('submit', function (e){
         e.preventDefault();
 
@@ -434,17 +449,14 @@ http.createServer(function (req, res) {
         }).then(function(response){
           return response.text();
         
-        
         }).then(function (text){
           console.log(text);
           
         }).catch(function (error){
           console.error(error);
-
         });
-      
       });
-
+/*-----------------------JS SUBMIT EVENT LISTENER-----------------*/
       jsForm.addEventListener('submit', function (e){
         e.preventDefault();
 
@@ -456,19 +468,17 @@ http.createServer(function (req, res) {
           body: jsData
 
         }).then(function(response){
-          return response.text();
-        
+          return response.text(); 
         
         }).then(function (text){
           console.log(text);
           
         }).catch(function (error){
           console.error(error);
-
-        });
-      
+        });  
       });
-
+      
+      /*-----------------------C SUBMIT EVENT LISTENER-----------------*/
       cForm.addEventListener('submit', function (e){
         e.preventDefault();
 
@@ -482,18 +492,17 @@ http.createServer(function (req, res) {
         }).then(function(response){
           return response.text();
         
-        
         }).then(function (text){
           console.log(text);
           
         }).catch(function (error){
           console.error(error);
-
-        });
-      
+        });  
       });
 
     </script>
+
+    <!--------------------- SUPPORTFORM SUBMISSIONS EVENTLISTNER--------------------->
 
     <script>
       submitBtn = document.getElementById('submitBtn');
@@ -504,7 +513,7 @@ http.createServer(function (req, res) {
     
 
     
-
+    <!--------------------- PRISM.JS-------------------------->
     <script src="Resources/prism (1).js"></script>
   </body>
 </html>
